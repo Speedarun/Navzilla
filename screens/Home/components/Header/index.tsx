@@ -1,10 +1,11 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { style } from "./styles";
 import { Searchbar } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 
 const Header = () => {
+  const [query, setQuery] = useState("");
   return (
     <View style={style.main}>
       <View style={style.container}>
@@ -19,8 +20,8 @@ const Header = () => {
           />
         </View>
         <View style={style.searchBar}>
-          <Searchbar value="" />
-          <TouchableOpacity
+          <Searchbar value={query} onChangeText={setQuery}/>
+          {query.length == 0 ? <TouchableOpacity
             style={{
               position: "absolute",
               marginLeft: "85%",
@@ -30,7 +31,8 @@ const Header = () => {
             }}
           >
             <Icon name="filter" color="white" size={25} />
-          </TouchableOpacity>
+          </TouchableOpacity>: ""}
+          
         </View>
       </View>
       <View style={{ height: 180}}>

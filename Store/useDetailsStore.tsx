@@ -8,6 +8,8 @@ interface Coffee {
     price: number;
     id: string;
     image: string;
+    numberOfRatings: number;
+    description: string
 }
 
 interface Details {

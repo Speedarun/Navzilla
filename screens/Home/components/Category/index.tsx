@@ -68,32 +68,54 @@ const Category = () => {
             numColumns={2}
             columnWrapperStyle={{ padding: 5 }}
             renderItem={({ item }) => (
-              <TouchableOpacity onPress={()=>navigation.navigate('Products', {category: item.category})}>
-                <View style={style.result}>
-                  <View
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      position: "absolute",
-                      zIndex: 2,
-                      margin: 5,
-                    }}
-                  >
-                    <Icon name="star" color="gold" size={17} />
-                    <Text style={{ color: "#fff" }}> {item.rating}</Text>
-                  </View>
+              <View style={style.result}>
+                <View
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    position: "absolute",
+                    zIndex: 2,
+                    margin: 5,
+                  }}
+                >
+                  <Icon name="star" color="gold" size={17} />
+                  <Text style={{ color: "#fff" }}> {item.rating}</Text>
+                </View>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate("Products", item )
+                  }
+                >
                   <Image
                     source={coffeeImages["coffee"]}
                     style={style.image}
                     resizeMode="cover"
                   />
-                  <Text style={style.resultName}>{item.name}</Text>
-                  <Text style={style.resultSub}>With Chocolate</Text>
+                </TouchableOpacity>
+                <Text style={style.resultName}>{item.name}</Text>
+                <Text style={style.resultSub}>With Chocolate</Text>
+                <View
+                  style={{ display: "flex", flexDirection: "row", gap: "32%" }}
+                >
                   <Text style={style.resultPrice}>
                     ${item.price.toFixed(2)}
                   </Text>
+                  <TouchableOpacity>
+                  <Icon
+                    name="plus"
+                    color="white"
+                    size={20}
+                    style={{
+                      backgroundColor: "#c67c4e",
+                      padding: 10,
+                      width: 38,
+                      borderRadius: 5,
+                    }}
+                  />
+                  </TouchableOpacity>
+                  
                 </View>
-              </TouchableOpacity>
+              </View>
             )}
             scrollEnabled={true}
             nestedScrollEnabled={true}

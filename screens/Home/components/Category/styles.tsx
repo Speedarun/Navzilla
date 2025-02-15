@@ -39,7 +39,7 @@ export const style = StyleSheet.create({
   },
   resultPrice: {
     color: "#333",
-    fontSize: 20,
+    fontSize: 30,
     fontFamily: 'Times New Roman'
   },
   resultSub: {

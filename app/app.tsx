@@ -11,7 +11,7 @@ const app = () => {
 }
 export type RootStackParamList = {
   Main: undefined;
-  Products: { category: string };
+  Products: { category: string, id: string, name: string, rating: number,numberOfRatings: number, price: number, description: string, image: string };
 };
 
 export type ProductsScreenProps = NativeStackScreenProps<RootStackParamList, 'Products'>;
