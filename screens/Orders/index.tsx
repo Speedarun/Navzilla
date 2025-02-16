@@ -123,7 +123,7 @@ const OrdersScreen = ({ route }: any) => {
         
         <Text style={styles.paymentText}>Cash</Text>
       </TouchableOpacity>
-      <Text style={styles.paymentAmount}>$5.53</Text>
+      <Text style={styles.paymentAmount}>$ {count * price + 1.0}</Text>
       <TouchableOpacity>
         <Icon name="ellipsis-horizontal" size={20} style={styles.moreIcon} />
       </TouchableOpacity>
