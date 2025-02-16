@@ -11,7 +11,7 @@ export const dummyDetails = [
   },
   {
     id: '2',
-    name: "Macchiato",
+    name: "Cappuccino",
     category: "Cappuccino",
     rating: 4.6,
     numberOfRatings: 980,

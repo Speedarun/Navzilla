@@ -5,7 +5,7 @@ import Category from "./components/Category";
 
 const HomeScreen = () => {
   return (
-    <View style={{height: '100%'}}>
+    <View>
       <Header />
       <Category />
     </View>

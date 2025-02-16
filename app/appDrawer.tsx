@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/Home/HomeScreen";
 import FavouriteScreen from "../screens/Favourite/FavouriteScreen";
@@ -8,8 +8,19 @@ import Icon from "react-native-vector-icons/Ionicons";
 import App, { RootStackParamList } from "./app";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProductScreen from "@/screens/Products";
+import { TouchableOpacity } from "react-native";
+import OrdersScreen from "@/screens/Orders";
 
 const Tab = createBottomTabNavigator();
+
+const LikeButton = () => {
+  const [liked, setLiked] = useState(false);
+  return (
+    <TouchableOpacity onPress={() => setLiked(!liked)}>
+      <Icon name={liked ? 'heart' : 'heart-outline'} size={30} color={liked ? 'red' : 'gray'}/>
+    </TouchableOpacity>
+  )
+}
 
 const TabNavigator = () => {
   return (
@@ -59,7 +70,8 @@ const StackNavigator = () => {
   return(
     <Stack.Navigator>
       <Stack.Screen name="Main" component={TabNavigator}options={{headerShown: false}} />
-      <Stack.Screen name="Products" component={ProductScreen} />
+      <Stack.Screen name="Products" component={ProductScreen} options={{headerRight: () => <LikeButton />, headerTitleAlign: 'center'}} />
+      <Stack.Screen name="Order" component={OrdersScreen} options={{headerTitleAlign: 'center'}} />
     </Stack.Navigator>
   )
 }

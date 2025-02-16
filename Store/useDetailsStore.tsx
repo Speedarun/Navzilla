@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import { dummyDetails } from '@/DummyDetails/dummyDetails';
+import { dummyDetails } from '@/dummydetails/dummyDetails';
 
 interface Coffee {
     name: string;

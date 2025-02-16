@@ -1,14 +1,13 @@
 import { StyleSheet } from "react-native";
 
-export const style = StyleSheet.create({
-  
+export const styles = StyleSheet.create({
   categoryContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     marginTop: 80,
     paddingBottom: 12,
-    paddingLeft: 12
+    paddingLeft: 12,
   },
   category: {
     marginHorizontal: 5,
@@ -23,24 +22,24 @@ export const style = StyleSheet.create({
     fontWeight: "bold",
   },
   resultContainer: {
-    width: '100%',
-    height: 'auto',
-    flex: 1
+    width: "100%",
+    height: "auto",
+    flex: 1,
   },
   result: {
     width: 140,
     margin: 16,
-    flex: 1
+    flex: 1,
   },
   resultName: {
     color: "#333",
     fontSize: 18,
-    fontWeight: 900
+    fontWeight: 900,
   },
   resultPrice: {
     color: "#333",
     fontSize: 30,
-    fontFamily: 'Times New Roman'
+    fontFamily: "Times New Roman",
   },
   resultSub: {
     color: "#333",
@@ -50,7 +49,6 @@ export const style = StyleSheet.create({
     width: 150,
     height: 120,
     borderRadius: 10,
-    position: 'relative'
+    position: "relative",
   },
-  
 });
