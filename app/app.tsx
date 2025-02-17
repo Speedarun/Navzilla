@@ -31,6 +31,9 @@ export type RootStackParamList = {
     description: string;
     image: string;
   };
+  Track: {
+    name: string;
+  };
 };
 
 export type ProductsScreenProps = NativeStackScreenProps<
@@ -38,6 +41,7 @@ export type ProductsScreenProps = NativeStackScreenProps<
   "Products"
 >;
 export type OrdersScreenProps = NativeStackScreenProps<
-  RootStackParamList, "Order"
+  RootStackParamList,
+  "Order"
 >;
 export default app;

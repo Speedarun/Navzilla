@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 import { styles } from "./styles";
+import { useNavigation } from "expo-router";
 
 const OrdersScreen = ({ route }: any) => {
   const coffeeImages = {
@@ -9,6 +10,7 @@ const OrdersScreen = ({ route }: any) => {
   };
   const [choice, setChoice] = useState("Deliver");
   const [count, setCount] = useState(1);
+  const navigation = useNavigation();
   const {
     name,
     id,
@@ -93,7 +95,7 @@ const OrdersScreen = ({ route }: any) => {
       <View style={[styles.row, styles.discountContainer]}>
         <Icon name="pricetag" style={styles.discountIcon} size={15} />
         <Text style={styles.discountText}>1 Discount is applied</Text>
-        <Icon name="chevron-forward" size={15} />
+        <Icon name="chevron-forward" size={15} style={{ marginLeft: "40%" }} />
       </View>
 
       <View style={styles.sectionContainer}>
@@ -116,20 +118,24 @@ const OrdersScreen = ({ route }: any) => {
           $ {(price * count + 1.0).toFixed(2)}
         </Text>
       </View>
-      
+
       <View style={styles.paymentContainer}>
-      <Icon name="cash-outline" size={16} style={styles.paymentIcon} />
-      <TouchableOpacity style={styles.paymentMethod}>
-        
-        <Text style={styles.paymentText}>Cash</Text>
-      </TouchableOpacity>
-      <Text style={styles.paymentAmount}>$ {count * price + 1.0}</Text>
-      <TouchableOpacity>
-        <Icon name="ellipsis-horizontal" size={20} style={styles.moreIcon} />
-      </TouchableOpacity>
-    </View>
-      
-      <TouchableOpacity style={styles.orderButton}>
+        <Icon name="cash-outline" size={16} style={styles.paymentIcon} />
+        <TouchableOpacity style={styles.paymentMethod}>
+          <Text style={styles.paymentText}>Cash</Text>
+        </TouchableOpacity>
+        <Text style={styles.paymentAmount}>
+          $ {(count * price + 1.0).toFixed(2)}
+        </Text>
+        <TouchableOpacity>
+          <Icon name="ellipsis-horizontal" size={20} style={styles.moreIcon} />
+        </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity
+        style={styles.orderButton}
+        onPress={() => navigation.navigate("Track")}
+      >
         <Text style={styles.orderButtonText}>Order</Text>
       </TouchableOpacity>
     </View>
